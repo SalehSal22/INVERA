@@ -2,7 +2,7 @@
 
 MentalState is a Laravel API for a video-based mental-health assessment platform. Users can register with email OTP verification, upload a video, receive external machine-learning analysis, complete an eight-branch KBS assessment, and retrieve assessment reports.
 
-The project demonstrates a backend workflow built around authentication, media processing, asynchronous jobs, external services, notifications, and reporting. It is designed to support a separate mobile or frontend client.
+The project demonstrates a backend workflow built around authentication, media processing, asynchronous jobs, external services, and reporting. It is designed to support a separate mobile or frontend client.
 
 ## Features
 
@@ -15,7 +15,6 @@ The project demonstrates a backend workflow built around authentication, media p
 - External ML processing integration and status callbacks
 - Eight-branch KBS assessment flow backed by a Python service
 - Assessment report storage and platform analytics
-- Firebase Cloud Messaging notifications
 - User profiles and avatar uploads
 - Throttling on sensitive authentication endpoints
 
@@ -28,10 +27,8 @@ The project demonstrates a backend workflow built around authentication, media p
 - `php-open-source-saver/jwt-auth` for JWT authentication
 - Laravel Sanctum for the default framework user route
 - FFmpeg/FFprobe through `pbmedia/laravel-ffmpeg`
-- Firebase Admin SDK through `kreait/laravel-firebase`
 - Database queues for background processing
-- Vite, Tailwind CSS, and Axios
-- Pest/PHPUnit for testing
+
 
 ## Architecture
 
@@ -226,7 +223,7 @@ tests/                    Feature and unit tests
 
 ## Known Limitations
 
-- The included frontend is only a minimal Vite/Tailwind shell; the mobile client and admin UI are not included.
+-  the mobile client and admin UI are not included.
 - The outbound ML URL and API key handling in `ProcessVideoJob` should be moved to configuration.
 - The ML callback accepts `analyzed`, while the video status database enum does not currently include that value.
 - KBS start should apply the same video ownership check used by report retrieval.
